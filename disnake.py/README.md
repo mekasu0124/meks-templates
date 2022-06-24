@@ -27,16 +27,18 @@
     <p>
         The <code>config.json</code> is the main file that is needed. This file holds your bot(s) tokens, value of dev_mode, and all of your guild_ids that your bot is in. The structure for the
         <code>config.json</code> is as follows:<br>
-        <code>
-        {<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;"token_dev": "your_token_for_your_development_bot",<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;"token_live": "your_token_for_your_live_bot",<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;"guild_ids": {<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"a": 00000000000,<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"b": 00000000000<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+        ```json
+
+        {
+            "token_dev": "your_token_for_your_development_bot",
+            "token_live": "your_token_for_your_live_bot",
+            "guild_ids": {
+                "a": 00000000000,<br>
+                "b": 00000000000<br>
+            }
         }
-        </code><br>
+
+        ```
         You're welcome to edit the code to allow iteration through bot tokens as well if you prefer a setup with list/dict indexing. . .I do not. They key names "a" and "b" are not relavent and therefore it does not matter what you set them to as the code uses the variable <i>i</i> as a placeholder for those values when loading the guild_ids.<br>
         <p>
             <u style="color: red;">Note:</u><br>
@@ -46,16 +48,17 @@
     <h2>The Main Bot File <code>bot.py</code></h2>
     <p>
         This file is setup in a mannor that checks your value for <code>dev_mode</code> that is located in the <code>config.json</code>. It is also setup in a manor for if you only want to maintain one bot, all you have to do is comment out/remove the if-else statement and replace it with the one-liner for initiating the bot.<br>
-        <code>
-            # replace this<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;if dev_mode == "True":<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bot = commands.Bot(. . .)<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;else:<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bot = commands.Bot(. . .)<br>
-            <br>
+        ```python
+
+            # replace this
+            if dev_mode == "True":
+                bot = commands.Bot(. . .)
+            else:
+                bot = commands.Bot(. . .)
+
             # with this<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;bot = commands.Bot(. . .)
-        </code><br>
+            bot = commands.Bot(. . .)
+        ```
         <h3><u>The <code>on_ready()</code> Function</u></h3>
         <p>
             The <code>on_ready()</code> function first iterates through the guild_ids that were loaded into the guild_ids array at the start of the file after opening the json file. As it iterates through each guild id, it obtains that guilds terminal channel for Gawther and creates a counter set equal to 0. This counter is used later for the channels purge method. Next we iterate through the files located in your <code>./cogs</code> folder and telling the bot to load them. Regardless to which server you're in, a bot without commands is a bot that can't do anything, so you'll want to load your cogs in. While loading each cog, the bot tells the terminal channel that each cog has been loaded successfully and increases the counter by one. For each cog that is loaded, a message is sent. 20 cogs = 20 load messages. Now we bring in the purge method <code>await term_channel.purge(limit=count)</code>. This goes back through and cleans up all those cog loaded messages, removes the initial "Logging In" message, and returns that the bot has logged in. There is also an update command placed after this. This command is executable in any text channel, and follows the same steps listed above. The only difference is that when updating, the bot will leave behind both "Gawther is updating" and the confirmation message for logging in.<br>
@@ -105,5 +108,5 @@
     </p>
 </body>
 <footer>
-    <h1 style="color: orange;">At this time Gawther is a private bot built solely for the Gawther Platform. I am only sharing the main bot files structure for those who want to work with two bots. Anyone is welcome to clone the repository, but you will need to go back and adjust all code to match your server, it's roles, and channels. With this code being private, I will not assist in a re-write for your server. That is on you to figure out</h1>
+    <footer style="color: orange;">At this time Gawther is a private bot built solely for the Gawther Platform. I am only sharing the main bot files structure for those who want to work with two bots. Anyone is welcome to clone the repository, but you will need to go back and adjust all code to match your server, it's roles, and channels. With this code being private, I will not assist in a re-write for your server. That is on you to figure out</footer>
 </footer>
