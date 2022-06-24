@@ -29,8 +29,8 @@ If you do not want to install each dependency, run <code>pip install -r requirem
         "token_dev": "your_token_for_your_development_bot",
         "token_live": "your_token_for_your_live_bot",
         "guild_ids": {
-            "a": 00000000000,<br>
-            "b": 00000000000<br>
+            "a": 0123456789,
+            "b": 0123456789
         }
     }
 ```
