@@ -22,6 +22,7 @@ If you do not want to install each dependency, run <code>pip install -r requirem
 <p>
     The <code>config.json</code> is the main file that is needed. This file holds your bot(s) tokens, value of dev_mode, and all of your guild_ids that your bot is in. The structure for the <code>config.json</code> is as follows:
 </p>
+
 ```json
 
     {
@@ -33,6 +34,7 @@ If you do not want to install each dependency, run <code>pip install -r requirem
         }
     }
 ```
+
 <p>
     You're welcome to edit the code to allow iteration through bot tokens as well if you prefer a setup with list/dict indexing. . .I do not. They key names "a" and "b" are not relavent and therefore it does not matter what you set them to as the code uses the variable <i>i</i> as a placeholder for those values when loading the guild_ids.<br>
 </p>
@@ -44,6 +46,7 @@ If you do not want to install each dependency, run <code>pip install -r requirem
 <p>
     This file is setup in a mannor that checks your value for <code>dev_mode</code> that is located in the <code>config.json</code>. It is also setup in a manor for if you only want to maintain one bot, all you have to do is comment out/remove the if-else statement and replace it with the one-liner for initiating the bot.<br>
 </p>
+
 ```python
 
     # replace this
@@ -55,6 +58,7 @@ If you do not want to install each dependency, run <code>pip install -r requirem
     # with this<br>
     bot = commands.Bot(. . .)
 ```
+
 <h3><u>The <code>on_ready()</code> Function</u></h3>
 <p>
     The <code>on_ready()</code> function first iterates through the guild_ids that were loaded into the guild_ids array at the start of the file after opening the json file. As it iterates through each guild id, it obtains that guilds terminal channel for Gawther and creates a counter set equal to 0. This counter is used later for the channels purge method. Next we iterate through the files located in your <code>./cogs</code> folder and telling the bot to load them. Regardless to which server you're in, a bot without commands is a bot that can't do anything, so you'll want to load your cogs in. While loading each cog, the bot tells the terminal channel that each cog has been loaded successfully and increases the counter by one. For each cog that is loaded, a message is sent. 20 cogs = 20 load messages. Now we bring in the purge method <code>await term_channel.purge(limit=count)</code>. This goes back through and cleans up all those cog loaded messages, removes the initial "Logging In" message, and returns that the bot has logged in. There is also an update command placed after this. This command is executable in any text channel, and follows the same steps listed above. The only difference is that when updating, the bot will leave behind both "Gawther is updating" and the confirmation message for logging in.<br>
