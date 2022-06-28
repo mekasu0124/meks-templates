@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="./index.css" />
+    <title>Mek's Example Form Submission</title>
+  </head>
+  <body>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: black;
+        color: silver;
+      }
+
+      .con-1,
+      .title-container,
+      .container,
+      .container2,
+      .a, .b, .c, .d {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      .container,
+      .container2 {
+        flex-direction: row;
+        padding: calc(1rem * 1);
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 10px; 
+      }
+
+      .a,.b,.c,.d {
+        float: left;
+        font-size: 16px;
+        margin-left: 20px;
+        margin-right: 20px;
+        border: 3px solid silver;
+        border-radius: 30px 5px 30px 5px;
+        padding: calc(1rem * 3);
+      }
+
+      h1:hover,
+      .a:hover, .b:hover,
+      .c:hover, .d:hover {
+        transition: 3.5s ease;
+        background: silver;
+        color: black;
+      }
+
+      img {
+        width: 50%;
+        height: 150px;
+        border-radius: 50%;
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+      }
+
+      .navbar-left {
+        width: 80%;
+        float: left;
+      }
+      
+      .navbar-right {
+        width: 20%;
+        float: right;
+      }
+
+      .nav-item {
+        font-size: 20px;
+        color: silver;
+      }
+    </style>
+    <div class="navbar">
+      <div class="navbar-left">
+        <div class="navbar-inner">
+          <a class="nav-item" href="https://www.google.com">Google</a>
+          <a class="nav-item" href="https://www.facebook.com">Facebook</a>
+          <a class="nav-item" href="https://www.twitter.com">Twitter</a>
+          <a class="nav-item" href="https://instagram.com">Instagram</a>
+        </div>
+      </div>
+      <div class="navbar-right">
+        <img src="./egypt_kitty_social.png" alt="Example Image Of A Cat" />
+      </div>
+    </div>
+    <div class="con-1">
+      <div class="title-container">
+        <h1>Welcome To Mek's Example Landing Page</h1>
+      </div>
+      <div class="container">
+        <div class="a">
+          <h3>Example Title</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
+            irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
+            deserunt mollit anim id est laborum.
+          </p>
+        </div>
+        <div class="b">
+          <h3>Example Title</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
+            irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
+            deserunt mollit anim id est laborum.
+          </p>
+        </div>
+      </div>
+      <div class="container2">
+        <div class="c">
+          <h3>Example Title</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
+            irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
+            deserunt mollit anim id est laborum.
+          </p>
+        </div>
+        <div class="d">
+          <h3>Example Title</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
+            irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
+            deserunt mollit anim id est laborum.
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
